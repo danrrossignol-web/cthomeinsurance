@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium Connecticut home insurance by River East Insurance. Get upscale, comprehensive coverage for your CT home with local expertise from our Manchester agency.">
+    <meta name="keywords" content="Connecticut Home Insurance, CT Homeowners Insurance, River East Insurance, Manchester CT Insurance, Premium Home Coverage">
+    <meta name="author" content="River East Insurance">
+    <title>CTHomeInsurance.com | Premium Connecticut Home Insurance</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#f0f4f8',
+                            800: '#1a2a40',
+                            900: '#0d1624',
+                        },
+                        gold: {
+                            400: '#e5c07b',
+                            500: '#d4af37', // Classic champagne/gold
+                            600: '#b5952f',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    boxShadow: {
+                        'gold': '0 4px 14px 0 rgba(212, 175, 55, 0.39)',
+                        'upscale': '0 10px 40px -10px rgba(13, 22, 36, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(13, 22, 36, 0.85), rgba(13, 22, 36, 0.7)), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(to right, #e5c07b, #d4af37, #b5952f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Card Hover Effects */
+        .hover-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px -10px rgba(212, 175, 55, 0.15);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-navy-50 antialiased overflow-x-hidden">
+
+    <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm transition-all duration-300 border-b border-gray-100" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <i class="fa-solid fa-shield-halved text-gold-500 text-3xl"></i>
+                    <div class="flex flex-col">
+                        <span class="font-serif font-bold text-2xl text-navy-900 leading-none tracking-tight">CTHomeInsurance</span>
+                        <span class="text-xs text-gray-500 font-medium tracking-widest uppercase mt-1">By River East Insurance</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#why-us" class="text-sm font-medium text-gray-700 hover:text-gold-500 transition-colors">Why Us</a>
+                    <a href="#coverage" class="text-sm font-medium text-gray-700 hover:text-gold-500 transition-colors">Coverage</a>
+                    <a href="#about" class="text-sm font-medium text-gray-700 hover:text-gold-500 transition-colors">About</a>
+                    <a href="https://www.rivereastinsurance.com" target="_blank" class="text-sm font-medium text-gray-500 hover:text-navy-900 transition-colors">Main Agency</a>
+                    <a href="#quote" class="px-6 py-2.5 rounded-full bg-navy-900 text-white font-medium text-sm hover:bg-gold-500 hover:shadow-gold transition-all duration-300">
+                        Get a Quote
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-navy-900 hover:text-gold-500 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-1 text-center">
+                <a href="#why-us" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-gold-500 hover:bg-gray-50 rounded-md">Why Us</a>
+                <a href="#coverage" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-gold-500 hover:bg-gray-50 rounded-md">Coverage</a>
+                <a href="#about" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-gold-500 hover:bg-gray-50 rounded-md">About</a>
+                <a href="#quote" class="block mt-4 px-3 py-3 text-base font-medium bg-navy-900 text-white rounded-md hover:bg-gold-500">Get a Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="relative h-screen min-h-[600px] flex items-center justify-center hero-bg text-center px-4 pt-20">
+            <div class="max-w-4xl mx-auto z-10">
+                <span class="reveal block text-gold-500 font-semibold tracking-widest uppercase text-sm mb-4">Exclusive Protection for Connecticut</span>
+                <h1 class="reveal delay-100 text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight">
+                    Premium Home Insurance for <span class="gold-gradient-text italic">Connecticut Residents</span>
+                </h1>
+                <p class="reveal delay-200 text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light">
+                    Safeguarding your most valuable asset with bespoke coverage, unparalleled local expertise, and the concierge service you deserve.
+                </p>
+                <div class="reveal delay-300 flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="#quote" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gold-500 text-navy-900 font-semibold text-lg hover:bg-white hover:shadow-gold transition-all duration-300 transform hover:-translate-y-1">
+                        Request a Complimentary Quote
+                    </a>
+                    <a href="#why-us" class="w-full sm:w-auto px-8 py-4 rounded-full bg-transparent border-2 border-white/30 text-white font-medium text-lg hover:bg-white/10 hover:border-white transition-all duration-300">
+                        Explore Coverage
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <a href="#why-us" class="text-white/50 hover:text-gold-500 transition-colors">
+                    <i class="fa-solid fa-chevron-down text-2xl"></i>
+                </a>
+            </div>
+        </section>
+
+        <section id="why-us" class="py-24 bg-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                    <h2 class="text-sm font-bold text-gold-500 tracking-widest uppercase mb-2">The River East Advantage</h2>
+                    <h3 class="text-3xl md:text-5xl font-serif font-bold text-navy-900 mb-6">Why Choose a Local CT Agent?</h3>
+                    <p class="text-gray-600 text-lg">National carriers don't understand the nuances of Connecticut real estate. We do. As an independent agency, we curate policies tailored specifically to your lifestyle and property.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Feature 1 -->
+                    <div class="reveal delay-100 bg-navy-50 p-10 rounded-2xl hover-card text-center border border-gray-100">
+                        <div class="w-16 h-16 bg-navy-900 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <i class="fa-solid fa-map-location-dot text-gold-500 text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-serif font-bold text-navy-900 mb-3">Deep CT Expertise</h4>
+                        <p class="text-gray-600">From coastal properties in Fairfield County to historic homes in Litchfield, we know Connecticut's unique risks and requirements.</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="reveal delay-200 bg-navy-50 p-10 rounded-2xl hover-card text-center border border-gray-100">
+                        <div class="w-16 h-16 bg-navy-900 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <i class="fa-solid fa-scale-balanced text-gold-500 text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-serif font-bold text-navy-900 mb-3">Independent Choice</h4>
+                        <p class="text-gray-600">We aren't tied to one carrier. We leverage our network of premium insurance providers to find the perfect fit for your specific needs.</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="reveal delay-300 bg-navy-50 p-10 rounded-2xl hover-card text-center border border-gray-100">
+                        <div class="w-16 h-16 bg-navy-900 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <i class="fa-solid fa-gem text-gold-500 text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-serif font-bold text-navy-900 mb-3">Concierge Service</h4>
+                        <p class="text-gray-600">Experience white-glove service. From seamless onboarding to dedicated claims advocacy, we are by your side at every step.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="coverage" class="py-24 bg-navy-900 text-white relative overflow-hidden">
+            <!-- Decorative accent -->
+            <div class="absolute top-0 right-0 w-96 h-96 bg-gold-500 opacity-5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
+                    <div class="max-w-2xl">
+                        <h2 class="text-sm font-bold text-gold-500 tracking-widest uppercase mb-2">Bespoke Protection</h2>
+                        <h3 class="text-3xl md:text-5xl font-serif font-bold mb-4">Comprehensive Coverage for Your Estate</h3>
+                        <p class="text-gray-400 text-lg">Robust protection mechanisms designed to shield your assets against the unpredictable New England elements and modern liabilities.</p>
+                    </div>
+                    <div class="mt-6 md:mt-0">
+                        <a href="#quote" class="inline-flex items-center gap-2 text-gold-500 hover:text-white transition-colors font-medium border-b border-gold-500 pb-1 hover:border-white">
+                            Discuss Your Coverage Needs <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Card 1 -->
+                    <div class="reveal delay-100 bg-navy-800 p-8 rounded-xl border border-white/10 hover-card group relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gold-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+                        <i class="fa-solid fa-house-crack text-3xl text-gold-500 mb-6"></i>
+                        <h4 class="text-xl font-serif font-bold mb-3">Property Damage</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">High-value dwelling coverage ensuring your home can be rebuilt to its exact architectural specifications following a total loss.</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="reveal delay-200 bg-navy-800 p-8 rounded-xl border border-white/10 hover-card group relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gold-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+                        <i class="fa-solid fa-gavel text-3xl text-gold-500 mb-6"></i>
+                        <h4 class="text-xl font-serif font-bold mb-3">Personal Liability</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">Extensive liability limits to protect your wealth and future earnings against unforeseen lawsuits or accidents on your property.</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="reveal delay-300 bg-navy-800 p-8 rounded-xl border border-white/10 hover-card group relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gold-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+                        <i class="fa-solid fa-cloud-bolt text-3xl text-gold-500 mb-6"></i>
+                        <h4 class="text-xl font-serif font-bold mb-3">Nor'easter & Storm</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">Specialized coverage provisions for windstorm, hail, and extreme winter weather conditions prevalent in Connecticut.</p>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="reveal delay-400 bg-navy-800 p-8 rounded-xl border border-white/10 hover-card group relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gold-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+                        <i class="fa-solid fa-ring text-3xl text-gold-500 mb-6"></i>
+                        <h4 class="text-xl font-serif font-bold mb-3">Valuable Articles</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">Scheduled coverage for fine art, jewelry, wine collections, and antiques without standard policy sub-limits.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-24 bg-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="w-full lg:w-1/2 reveal">
+                        <div class="relative rounded-2xl overflow-hidden shadow-upscale">
+                            <!-- High quality agency/office placeholder -->
+                            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="River East Insurance Office" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 border-4 border-gold-500/20 rounded-2xl pointer-events-none"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full lg:w-1/2 reveal delay-200">
+                        <h2 class="text-sm font-bold text-gold-500 tracking-widest uppercase mb-2">Our Roots</h2>
+                        <h3 class="text-3xl md:text-5xl font-serif font-bold text-navy-900 mb-6">Proudly Based in Manchester, CT</h3>
+                        <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                            CTHomeInsurance.com is a specialized property platform proudly operated by <strong class="text-navy-900 font-semibold">River East Insurance</strong>. For years, we have served the Manchester community and the greater state of Connecticut with unwavering integrity.
+                        </p>
+                        <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                            Our philosophy is simple: upscale service shouldn't be an afterthought. We take the time to understand your life, mapping out a risk management strategy that lets you rest easy, knowing your estate is protected by the best in the business.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="https://www.rivereastinsurance.com" target="_blank" class="inline-flex justify-center items-center gap-2 px-8 py-3 rounded-full bg-navy-900 text-white font-medium hover:bg-gold-500 hover:shadow-gold transition-all duration-300">
+                                Visit Main Agency Site <i class="fa-solid fa-external-link-alt text-sm"></i>
+                            </a>
+                            <a href="tel:+10000000000" class="inline-flex justify-center items-center gap-2 px-8 py-3 rounded-full bg-navy-50 text-navy-900 font-medium hover:bg-navy-100 transition-colors border border-gray-200">
+                                <i class="fa-solid fa-phone text-gold-500"></i> Contact Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quote" class="py-24 bg-navy-800 text-white text-center relative overflow-hidden">
+            <!-- Background pattern -->
+            <div class="absolute inset-0 opacity-5" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'#ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+            
+            <div class="max-w-4xl mx-auto px-4 relative z-10 reveal">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6">Ready to Upgrade Your Coverage?</h2>
+                <p class="text-xl text-gray-300 mb-10 font-light">Connect with a River East Insurance advisor today for a confidential review of your current policy and a complimentary premium quote.</p>
+                
+                <!-- Mock Form -->
+                <form class="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-upscale text-left text-gray-800" onsubmit="event.preventDefault(); alert('In a live environment, this would submit to your CRM or email via a backend service.');">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 outline-none transition-all" placeholder="John" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 outline-none transition-all" placeholder="Doe" required>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                            <input type="email" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 outline-none transition-all" placeholder="john@example.com" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">CT Property ZIP Code</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 outline-none transition-all" placeholder="06040" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full py-4 rounded-lg bg-gold-500 text-navy-900 font-bold text-lg hover:bg-navy-900 hover:text-white hover:shadow-lg transition-all duration-300">
+                        Request Confidential Quote
+                    </button>
+                    <p class="text-xs text-center text-gray-500 mt-4"><i class="fa-solid fa-lock text-gray-400 mr-1"></i> Your information is secure and will never be shared.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-navy-900 text-gray-400 py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-shield-halved text-gold-500 text-2xl"></i>
+                        <span class="font-serif font-bold text-xl text-white">CTHomeInsurance</span>
+                    </div>
+                    <p class="text-sm mb-4 max-w-md">
+                        A specialized property insurance portal operated by River East Insurance. Dedicated to protecting Connecticut's finest homes with bespoke coverage solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold-500 hover:text-navy-900 transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold-500 hover:text-navy-900 transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold-500 hover:text-navy-900 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4 tracking-wide">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#why-us" class="hover:text-gold-500 transition-colors">Why Choose Us</a></li>
+                        <li><a href="#coverage" class="hover:text-gold-500 transition-colors">Coverage Details</a></li>
+                        <li><a href="#about" class="hover:text-gold-500 transition-colors">About River East</a></li>
+                        <li><a href="https://www.rivereastinsurance.com" target="_blank" class="hover:text-gold-500 transition-colors">Main Agency Website</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4 tracking-wide">Contact</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-gold-500"></i>
+                            <span>Operated by River East Insurance<br>Manchester, CT</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-gold-500"></i>
+                            <a href="mailto:info@rivereastinsurance.com" class="hover:text-gold-500 transition-colors">info@rivereastinsurance.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs">
+                <p>&copy; 2026 River East Insurance. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('shadow-sm');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('shadow-sm');
+            }
+        });
+
+        // Scroll Reveal Animation via IntersectionObserver
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        revealElements.forEach(el => {
+            revealOnScroll.observe(el);
+        });
+    </script>
+</body>
+</html>
